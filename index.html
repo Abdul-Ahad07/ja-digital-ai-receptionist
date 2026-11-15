@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Receptionist — System Interface</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="loader" class="loader-overlay">
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <h2>INITIALIZING SYSTEM...</h2>
+      <p>Connecting to J.A Digital Secure Server</p>
+    </div>
+  </div>
+
+  <!-- ⚡ ELECTRIC NEURAL NETWORK BACKGROUND ⚡ -->
+  <canvas id="electricCanvas"></canvas>
+
+  <div class="container">
+    <header>
+      <div class="logo-area">
+        <span class="ai-icon">🤖</span>
+        <h1 class="glitch-text" data-text="AI RECEPTIONIST">AI RECEPTIONIST</h1>
+      </div>
+      <p class="subtitle">[ NEXT-GEN HR & CUSTOMER SERVICE INTERFACE ]</p>
+    </header>
+
+    <div id="successMessage" class="success-banner">
+      <span>✅ SYSTEM CONNECTED. REDIRECTING TO WHATSAPP...</span>
+    </div>
+
+    <form id="intakeForm" novalidate>
+      <div id="errorBanner" class="error-banner">
+        <span>🚨 SYSTEM SHORT CIRCUIT: ALL FIELDS ARE REQUIRED! 🚨</span>
+      </div>
+
+      <!-- Baaki saare sections (A to H) wese hi rahenge, space bachane ke liye skip kiye hain, aap purane HTML se copy kar lein -->
+      <section class="highlight-section">
+        <h2>👤 CLIENT DETAILS</h2>
+        <div class="grid-2">
+          <label>Client's Full Name *<input type="text" name="client_name" placeholder="Enter Name" required /></label>
+          <label>Client's WhatsApp Number *<input type="tel" name="client_whatsapp" placeholder="Enter Number" required /></label>
+        </div>
+      </section>
+
+      <section>
+        <h2>A. BASIC INFO</h2>
+        <div class="grid-2">
+          <label>Company Name & Industry *<input type="text" name="company" required /></label>
+          <label>Your Designation *<input type="text" name="designation" required /></label>
+          <label>Office Timing & Timezone *<input type="text" name="timing" required /></label>
+          <label>Current Employees & How Many to Hire *<input type="text" name="employees" required /></label>
+        </div>
+      </section>
+
+      <section>
+        <h2>B. PURPOSE & GOAL</h2>
+        <label>Main Purpose *
+          <select name="purpose" class="has-other" required>
+            <option value="">-- Select Purpose --</option>
+            <option>Recruitment</option>
+            <option>Customer Service</option>
+            <option>Both</option>
+            <option value="Other">Other (Please specify)</option>
+          </select>
+          <input type="text" name="purpose_other" class="other-input" placeholder="Please specify..." style="display:none;" />
+        </label>
+        <div class="grid-2">
+          <label>Recruitment Problem *<input type="text" name="recruitment_problem" required /></label>
+          <label>Customer Service Problem *<input type="text" name="cs_problem" required /></label>
+        </div>
+        <label>Success Metric (measurable) *<input type="text" name="success_metric" required /></label>
+      </section>
+
+      <section>
+        <h2>C. RECRUITMENT REQUIREMENTS</h2>
+        <label>Roles & Positions *<input type="text" name="roles" required /></label>
+        <label>Must-have Skills (per role) *<textarea name="must_have" required></textarea></label>
+        <label>Nice-to-have Skills *<textarea name="nice_to_have" required></textarea></label>
+        <div class="grid-2">
+          <label>Minimum Experience *<input type="text" name="experience" required /></label>
+          <label>Degree Requirement *
+            <select name="degree" class="has-other" required>
+              <option value="">-- Select --</option>
+              <option>Yes, Mandatory</option>
+              <option>No</option>
+              <option>Preferred</option>
+              <option value="Other">Other (Please specify)</option>
+            </select>
+            <input type="text" name="degree_other" class="other-input" placeholder="Please specify..." style="display:none;" />
+          </label>
+        </div>
+        <label>Portfolio Required For Which Role? *<input type="text" name="portfolio_role" required /></label>
+        <label>What Should AI Check in Portfolio? *<textarea name="portfolio_check" required></textarea></label>
+        <label>What Should AI Extract from CV? *<textarea name="cv_extract" required></textarea></label>
+        <div class="grid-2">
+          <label>Should AI Reject or Only Shortlist? *
+            <select name="ai_reject" class="has-other" required>
+              <option value="">-- Select --</option>
+              <option>Shortlist only</option>
+              <option>Reject also</option>
+              <option value="Other">Other (Please specify)</option>
+            </select>
+            <input type="text" name="ai_reject_other" class="other-input" placeholder="Please specify..." style="display:none;" />
+          </label>
+          <label>Interview Scheduling By? *
+            <select name="interview_schedule" class="has-other" required>
+              <option value="">-- Select --</option>
+              <option>AI</option>
+              <option>HR</option>
+              <option>Both</option>
+              <option value="Other">Other (Please specify)</option>
+            </select>
+            <input type="text" name="interview_schedule_other" class="other-input" placeholder="Please specify..." style="display:none;" />
+          </label>
+        </div>
+        <label>Where Should Shortlisted Data Go? *<input type="text" name="shortlist_destination" required /></label>
+        <label>Auto-reply to Rejected Candidates? *
+          <select name="auto_reply" class="has-other" required>
+            <option value="">-- Select --</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option value="Other">Other (Please specify)</option>
+          </select>
+          <input type="text" name="auto_reply_other" class="other-input" placeholder="Please specify..." style="display:none;" />
+        </label>
+      </section>
+
+      <section>
+        <h2>D. CUSTOMER SERVICE</h2>
+        <label>Customers Are? *<input type="text" name="customer_type" required /></label>
+        <label>Top FAQs (5–10) *<textarea name="faqs" required></textarea></label>
+        <label>What Should AI Do? *<textarea name="ai_tasks" required></textarea></label>
+        <label>What Should AI NOT Do? *<textarea name="ai_not_do" required></textarea></label>
+        <div class="grid-2">
+          <label>Transfer To (Number + Timing) *<input type="text" name="transfer_to" required /></label>
+          <label>Support Channels *<input type="text" name="channels" required /></label>
+        </div>
+      </section>
+
+      <section>
+        <h2>E. KNOWLEDGE BASE</h2>
+        <div class="grid-2">
+          <label>Recruitment Data Ready? *<input type="text" name="recruitment_data" required /></label>
+          <label>CS Data Ready? *<input type="text" name="cs_data" required /></label>
+        </div>
+        <label>Brand Tone *
+          <select name="brand_tone" class="has-other" required>
+            <option value="">-- Select --</option>
+            <option>Professional</option>
+            <option>Friendly</option>
+            <option>Formal</option>
+            <option>Casual</option>
+            <option value="Other">Other (Please specify)</option>
+          </select>
+          <input type="text" name="brand_tone_other" class="other-input" placeholder="Please specify..." style="display:none;" />
+        </label>
+      </section>
+
+      <section>
+        <h2>F. TECHNICAL SETUP</h2>
+        <div class="grid-2">
+          <label>Phone System *<input type="text" name="phone_system" required /></label>
+          <label>ATS (Applicant Tracking System) *<input type="text" name="ats" required /></label>
+          <label>Calendar System *<input type="text" name="calendar" required /></label>
+          <label>Customer Data Destination *<input type="text" name="customer_data" required /></label>
+          <label>Candidate Data Destination *<input type="text" name="candidate_data" required /></label>
+          <label>CV Email Address *<input type="email" name="cv_email" required /></label>
+        </div>
+        <label>Website / WhatsApp API *<input type="text" name="website_api" required /></label>
+      </section>
+
+      <section>
+        <h2>G. COMPLIANCE & PRIVACY</h2>
+        <div class="grid-2">
+          <label>GDPR / Data Protection? *
+            <select name="gdpr" class="has-other" required>
+              <option value="">-- Select --</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option value="Other">Other (Please specify)</option>
+            </select>
+            <input type="text" name="gdpr_other" class="other-input" placeholder="Please specify..." style="display:none;" />
+          </label>
+          <label>Call Recording? *
+            <select name="call_recording" class="has-other" required>
+              <option value="">-- Select --</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option value="Other">Other (Please specify)</option>
+            </select>
+            <input type="text" name="call_recording_other" class="other-input" placeholder="Please specify..." style="display:none;" />
+          </label>
+          <label>AI Should Disclose It's AI? *
+            <select name="ai_disclose" class="has-other" required>
+              <option value="">-- Select --</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option value="Other">Other (Please specify)</option>
+            </select>
+            <input type="text" name="ai_disclose_other" class="other-input" placeholder="Please specify..." style="display:none;" />
+          </label>
+        </div>
+        <label>Data Retention Period *<input type="text" name="retention" required /></label>
+        <label>Tell Candidates AI is Checking? *<input type="text" name="ai_disclosure" required /></label>
+      </section>
+
+      <section>
+        <h2>H. BUDGET & TIMELINE</h2>
+        <div class="grid-2">
+          <label>One-time Budget *<input type="text" name="budget_one_time" required /></label>
+          <label>Monthly Budget *<input type="text" name="budget_monthly" required /></label>
+          <label>Deadline *<input type="text" name="deadline" required /></label>
+          <label>Content Ready or We Build? *<input type="text" name="content_status" required /></label>
+        </div>
+        <label>Pilot Test? *
+          <select name="pilot" class="has-other" required>
+            <option value="">-- Select --</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option value="Other">Other (Please specify)</option>
+          </select>
+          <input type="text" name="pilot_other" class="other-input" placeholder="Please specify..." style="display:none;" />
+        </label>
+      </section>
+
+      <button type="submit" class="submit-btn">
+        <span class="btn-text">INITIALIZE AI SETUP</span> <span class="icon">⚡</span>
+      </button>
+    </form>
+
+    <div class="powered-by">
+      ⚡ Powered by <strong>J.A Digital</strong> ⚡
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+                              </html>
